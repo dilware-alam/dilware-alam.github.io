@@ -1,1 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dilware Alam | Cyber Security & Finance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Official website of Dilware Alam – Cyber Security student, finance researcher, and digital creator."
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.2);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --card: #111827;
+      --border: #1f2933;
+      --radius-xl: 18px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.5);
+      --shadow-chip: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #a855f7, #4f46e5);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: var(--shadow-chip);
+    }
+
+    .logo-text-main {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    nav a:hover {
+      background: rgba(148, 163, 184, 0.2);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.7);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(79, 70, 229, 0.1);
+      box-shadow: var(--shadow-chip);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 32px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .hero-left {
+      padding-right: 4px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .eyebrow-badge {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      font-size: 10px;
+      color: #bbf7d0;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 5vw, 40px);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      max-width: 440px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      box-shadow: var(--shadow-chip);
+      white-space: nowrap;
+    }
+
+    .chip-accent {
+      border-color: rgba(79, 70, 229, 0.8);
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.18), #020617 55%);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 18px;
+      font-size: 13px;
+      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      color: white;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.9);
+      transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+      box-shadow: 0 24px 45px rgba(15, 23, 42, 1);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 8px 14px;
+      font-size: 13px;
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--text);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-chip);
+    }
+
+    .hero-meta {
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    /* Hero Right Card */
+
+    .hero-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 24px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #22c55e, #4f46e5);
+      border: 2px solid rgba(15, 23, 42, 0.9);
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.9);
+    }
+
+    .profile-name {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .profile-role {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .profile-badge {
+      margin-top: 4px;
+      font-size: 10px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(79, 70, 229, 0.18);
+      border: 1px solid rgba(79, 70, 229, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .profile-badge span {
+      font-size: 8px;
+      opacity: 0.8;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 11px;
+    }
+
+    .profile-pill {
+      border-radius: 14px;
+      padding: 7px 9px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .pill-label {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 9px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .pill-value {
+      font-size: 11px;
+    }
+
+    .profile-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .social-pill {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .social-pill:hover {
+      background: rgba(79, 70, 229, 0.2);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-chip);
+    }
+
+    .profile-orb {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 70%);
+      top: -80px;
+      right: -70px;
+      opacity: 0.17;
+      pointer-events: none;
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .section-link {
+      font-size: 11px;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border-radius: var(--radius-xl);
+      padding: 14px;
+      background: var(--card);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+      font-size: 12px;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .card-body {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .pill-soft {
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      font-size: 10px;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    /* Skills list */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 2fr);
+      gap: 16px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-chip {
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .timeline {
+      border-left: 1px dashed rgba(75, 85, 99, 0.9);
+      padding-left: 14px;
+      margin-top: 2px;
+    }
+
+    .timeline-item {
+      margin-bottom: 14px;
+      position: relative;
+      padding-left: 4px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -15px;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accent-soft);
+    }
+
+    .timeline-title {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .timeline-meta {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* Contact */
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      background: linear-gradient(135deg, #1f2937, #020617 65%);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: var(--shadow-soft);
+      font-size: 12px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .contact-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .contact-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-details {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .contact-details a {
+      color: #bfdbfe;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 10px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 840px) {
+      header {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 18px 14px 40px;
+      }
+
+      header {
+        border-radius: 14px;
+      }
+
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-title {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-mark">D</div>
+        <div>
+          <div class="logo-text-main">Dilware Alam</div>
+          <div class="logo-text-sub">Cyber Security • Finance • Creator</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#brands">Brands</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Let’s connect
+        <span>↗</span>
+      </button>
+    </header>
+
+    <!-- Hero -->
+    <main class="hero">
+      <div class="hero-left">
+        <div class="eyebrow">
+          <span class="eyebrow-badge">Open to collaborations</span>
+          <span>Portfolio • 2025</span>
+        </div>
+
+        <h1 class="hero-title">
+          I’m <span>Dilware Alam</span>,  
+          blending Cyber Security with Finance & Digital Creation.
+        </h1>
+
+        <p class="hero-subtitle">
+          BSc Cyber Security student with a background in M.Com (Finance).  
+          I explore the intersection of security, markets, and media – from ethical hacking
+          and OSINT to financial analysis and storytelling through content & eSports.
+        </p>
+
+        <div class="hero-tags">
+          <div class="chip chip-accent">BSc Cyber Security (Year 1)</div>
+          <div class="chip">M.Com – Finance</div>
+          <div class="chip">Ethical Hacking & OSINT</div>
+          <div class="chip">Technical Analysis</div>
+          <div class="chip">eSports & Content</div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+            View my work <span>↓</span>
+          </button>
+          <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            More about me
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <span>Based in India (IST)</span>
+          <span class="dot"></span>
+          <span>Interested in CyberSec internships & collabs</span>
+        </div>
+      </div>
+
+      <!-- Right: Profile card -->
+      <div class="hero-right">
+        <article class="profile-card" aria-label="Profile summary">
+          <div class="profile-orb"></div>
+          <div class="profile-top">
+            <div class="avatar">D</div>
+            <div>
+              <div class="profile-name">Dilware Alam</div>
+              <div class="profile-role">Cyber Security Student • Finance Research</div>
+              <div class="profile-badge">
+                <span>LIVE</span>
+                Building in public – security, markets & media.
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-grid">
+            <div class="profile-pill">
+              <div class="pill-label">Focus</div>
+              <div class="pill-value">Cyber Security • Ethical Hacking • OSINT</div>
+            </div>
+            <div class="profile-pill">
+              <div class="pill-label">Also into</div>
+              <div class="pill-value">Technical Analysis • Trading Psychology</div>
+            </div>
+            <div class="profile-pill">
+              <div class="pill-label">Current Projects</div>
+              <div class="pill-value">history.redacted • eSports content</div>
+            </div>
+            <div class="profile-pill">
+              <div class="pill-label">Looking for</div>
+              <div class="pill-value">Internships • Collabs • Mentors</div>
+            </div>
+          </div>
+
+          <div class="profile-footer">
+            <span>Let’s connect online:</span>
+            <div class="social-links">
+              <!-- Replace # with your actual links -->
+              <a class="social-pill" href="#" aria-label="Instagram">IG</a>
+              <a class="social-pill" href="#" aria-label="LinkedIn">in</a>
+              <a class="social-pill" href="#" aria-label="GitHub">GH</a>
+              <a class="social-pill" href="#" aria-label="YouTube">YT</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">About</div>
+          <h2 class="section-title">Who I am & what I’m building</h2>
+        </div>
+      </div>
+      <div class="skills-grid">
+        <div>
+          <p class="section-subtitle" style="margin-bottom: 10px;">
+            I’m a Cyber Security student with a strong foundation in commerce and finance.
+            I like understanding how systems work – whether it’s a computer network, a
+            financial market, or human behaviour on social media.
+          </p>
+          <p class="section-subtitle">
+            My current goals:
+            <br />
+            – Build a strong base in security (Linux, networking, tools, ethical hacking)  
+            – Combine finance & IT for research, analysis and real-world projects  
+            – Grow as a content creator around security, psychology & money.
+          </p>
+
+          <div style="margin-top: 14px;">
+            <div class="section-kicker" style="margin-bottom: 6px;">Skills Snapshot</div>
+            <div class="skills-list">
+              <span class="skill-chip">Linux • Terminal basics</span>
+              <span class="skill-chip">Kali / VirtualBox setup</span>
+              <span class="skill-chip">Networking fundamentals</span>
+              <span class="skill-chip">Ethical hacking basics</span>
+              <span class="skill-chip">Technical analysis</span>
+              <span class="skill-chip">Financial markets</span>
+              <span class="skill-chip">Content planning</span>
+              <span class="skill-chip">Storytelling</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-kicker">Timeline</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">BSc Cyber Security</div>
+              <div class="timeline-meta">Year 1 • Focus: networking, Linux, ethical hacking</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">M.Com with Finance</div>
+              <div class="timeline-meta">Built a base in markets, research & analysis</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Creator & eSports Enthusiast</div>
+              <div class="timeline-meta">
+                Experimenting with projects like MROx eSports, history.redacted and more.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Projects</div>
+          <h2 class="section-title">Things I’m experimenting with</h2>
+          <p class="section-subtitle">
+            A mix of security labs, research notes, and content experiments.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-tag">Security Lab</div>
+          <div class="card-title">Personal Kali Linux Lab</div>
+          <p class="card-body">
+            VirtualBox-based Kali lab for learning ethical hacking, networking,
+            reconnaissance, and basic exploitation in a safe environment.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">Kali Linux</span>
+            <span class="pill-soft">VirtualBox</span>
+            <span class="pill-soft">Networking</span>
+          </div>
+          <div class="card-meta">
+            <span>In progress</span>
+            <span>Lab notes & screenshots</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Finance</div>
+          <div class="card-title">Market Psychology Notebook</div>
+          <p class="card-body">
+            A personal notebook combining technical analysis, risk management,
+            and trading psychology, inspired by real charts and behaviour patterns.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">Technical Analysis</span>
+            <span class="pill-soft">Risk</span>
+            <span class="pill-soft">Journaling</span>
+          </div>
+          <div class="card-meta">
+            <span>Ongoing</span>
+            <span>Private research</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Content</div>
+          <div class="card-title">Dark Side of AI & Systems</div>
+          <p class="card-body">
+            Concept for short-form content on AI, surveillance, dark psychology,
+            and how systems influence people – mixing research with storytelling.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">AI & Ethics</span>
+            <span class="pill-soft">Psychology</span>
+            <span class="pill-soft">Reels / Shorts</span>
+          </div>
+          <div class="card-meta">
+            <span>Concept stage</span>
+            <span>Open to collaborators</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Brands / Handles -->
+    <section id="brands">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Handles & Brands</div>
+          <h2 class="section-title">Digital identities I work on</h2>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-tag">Instagram Page</div>
+          <div class="card-title">history.redacted</div>
+          <p class="card-body">
+            A page idea exploring hidden stories, controversial topics, and
+            untold sides of history, systems, and power.
+          </p>
+          <div class="card-meta">
+            <span>Theme</span>
+            <span>Dark history • Exposed narratives</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">eSports</div>
+          <div class="card-title">MROx eSports</div>
+          <p class="card-body">
+            eSports identity focused on BGMI, ScarFall 2.0, and Valorant –
+            combining gameplay, strategy and content.
+          </p>
+          <div class="card-meta">
+            <span>Role</span>
+            <span>Player • Creator</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-tag">Quote</div>
+          <div class="card-title">Personal Motto</div>
+          <p class="card-body">
+            “Chase your purpose with unwavering attitude, let your creations
+            speak louder than your words, and watch as the world bends to your vision.”
+          </p>
+          <div class="card-meta">
+            <span>— Dilware</span>
+            <span>Mindset • Vision</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2 class="section-title">Let’s build something</h2>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div>
+          <div class="contact-label">Open for</div>
+          <div class="contact-title">Internships, collaborations & learning opportunities.</div>
+          <p class="contact-note">
+            If you’re working on cyber security, finance-tech, OSINT, content,
+            or any project where security and psychology meet money & media,
+            I’d love to connect.
+          </p>
+          <button class="btn-primary"
+            onclick="location.href='mailto:youremail@example.com?subject=Let\'s%20Connect%20–%20From%20your%20website';">
+            Email me directly
+          </button>
+        </div>
+        <div class="contact-details">
+          <p><strong>Email</strong><br />
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p style="margin-top: 8px;"><strong>Social</strong><br />
+            Instagram: <a href="#">@your_instagram</a><br />
+            LinkedIn: <a href="#">Your LinkedIn URL</a><br />
+            GitHub: <a href="#">github.com/yourusername</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span>© <span id="year"></span> Dilware Alam. All rights reserved.</span>
+      <span>Built as a simple, fast, single-page site.</span>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
