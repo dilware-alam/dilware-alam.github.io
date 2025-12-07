@@ -2,25 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dilware Alam | Cyber Security </title>
+  <title>Dilware Alam | Cyber Security & Ethical Hacking</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Official website of Dilware Alam – Cyber Security student, finance researcher, and digital creator."
+    content="Official portfolio of Dilware Alam – Cyber Security student and aspiring ethical hacker (CNPT goal)."
   />
   <style>
     :root {
-      --bg: #050816;
-      --bg-alt: #0b1020;
-      --accent: #4f46e5;
-      --accent-soft: rgba(79, 70, 229, 0.2);
+      --bg: #020617;
+      --bg-alt: #020617;
+      --accent: #6366f1;
+      --accent-2: #22c55e;
+      --accent-soft: rgba(99, 102, 241, 0.32);
       --text: #f9fafb;
       --muted: #9ca3af;
-      --card: #111827;
-      --border: #1f2933;
+      --card: rgba(15, 23, 42, 0.88);
+      --border: rgba(148, 163, 184, 0.25);
       --radius-xl: 18px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.5);
-      --shadow-chip: 0 8px 20px rgba(0, 0, 0, 0.4);
+      --shadow-soft: 0 20px 55px rgba(0, 0, 0, 0.7);
+      --shadow-chip: 0 10px 32px rgba(15, 23, 42, 0.9);
     }
 
     * {
@@ -32,10 +33,41 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 50%, #020617 100%);
+      background: radial-gradient(circle at top, #020617 0, #000 55%, #020617 100%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Futuristic background grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -100px;
+      background-image:
+        linear-gradient(rgba(15, 23, 42, 0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.6) 1px, transparent 1px);
+      background-size: 70px 70px;
+      opacity: 0.35;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent 70%);
+      top: -140px;
+      right: -80px;
+      filter: blur(4px);
+      z-index: -1;
+      pointer-events: none;
     }
 
     a {
@@ -48,13 +80,13 @@
       display: block;
     }
 
-    /* Layout */
-
     .page {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 24px 20px 60px;
+      padding: 26px 18px 60px;
     }
+
+    /* Header / Nav */
 
     header {
       display: flex;
@@ -63,12 +95,13 @@
       gap: 16px;
       padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.75);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
       border: 1px solid rgba(148, 163, 184, 0.3);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(22px);
       position: sticky;
-      top: 12px;
+      top: 14px;
       z-index: 10;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.95);
     }
 
     .logo {
@@ -78,21 +111,36 @@
     }
 
     .logo-mark {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #a855f7, #4f46e5);
+      background: conic-gradient(from 220deg, #22c55e, #6366f1, #06b6d4, #22c55e);
       display: grid;
       place-items: center;
       font-weight: 700;
       font-size: 18px;
-      box-shadow: var(--shadow-chip);
+      color: #0b1120;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 3px;
+      border-radius: inherit;
+      background: radial-gradient(circle at 30% 20%, #020617, #020617 55%, #020617 100%);
+    }
+
+    .logo-mark span {
+      position: relative;
+      z-index: 1;
     }
 
     .logo-text-main {
       font-weight: 600;
-      letter-spacing: 0.05em;
-      font-size: 14px;
+      letter-spacing: 0.06em;
+      font-size: 13px;
       text-transform: uppercase;
     }
 
@@ -103,7 +151,7 @@
 
     nav {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       font-size: 13px;
       color: var(--muted);
     }
@@ -111,17 +159,38 @@
     nav a {
       padding: 6px 10px;
       border-radius: 999px;
-      transition: background 0.2s, color 0.2s, transform 0.15s;
+      transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(99, 102, 241, 0.3), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    nav a span {
+      position: relative;
+      z-index: 1;
     }
 
     nav a:hover {
-      background: rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.95);
       color: var(--text);
       transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.9);
+    }
+
+    nav a:hover::before {
+      opacity: 1;
     }
 
     .btn-outline {
-      border: 1px solid rgba(148, 163, 184, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.75);
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 12px;
@@ -129,68 +198,103 @@
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      background: rgba(15, 23, 42, 0.7);
-      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.28), rgba(15, 23, 42, 0.98));
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s, border-color 0.2s;
+      color: #e5e7eb;
     }
 
     .btn-outline:hover {
-      background: rgba(79, 70, 229, 0.1);
-      box-shadow: var(--shadow-chip);
+      background: radial-gradient(circle at 0 0, rgba(99, 102, 241, 0.46), rgba(15, 23, 42, 1));
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.95);
       transform: translateY(-1px);
+      border-color: rgba(129, 140, 248, 0.9);
     }
 
-    /* Hero */
+    /* Hero Layout */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 32px;
-      margin-top: 28px;
+      grid-template-columns: minmax(0, 3.3fr) minmax(0, 2.4fr);
+      gap: 36px;
+      margin-top: 32px;
       align-items: center;
     }
 
     .hero-left {
-      padding-right: 4px;
+      padding-right: 6px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.16em;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .eyebrow-badge {
-      padding: 3px 10px;
+      padding: 4px 11px;
       border-radius: 999px;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.5);
+      background: rgba(22, 163, 74, 0.14);
+      border: 1px solid rgba(34, 197, 94, 0.6);
       font-size: 10px;
       color: #bbf7d0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      70% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
     }
 
     .hero-title {
-      font-size: clamp(30px, 5vw, 40px);
+      font-size: clamp(31px, 5.2vw, 42px);
       font-weight: 700;
       line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
     }
 
     .hero-title span {
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      background: linear-gradient(135deg, #6366f1, #22c55e, #06b6d4);
       -webkit-background-clip: text;
       color: transparent;
     }
 
     .hero-subtitle {
       font-size: 13px;
-      max-width: 440px;
+      max-width: 460px;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle strong {
+      font-weight: 600;
+      color: #e5e7eb;
     }
 
     .hero-tags {
@@ -202,17 +306,17 @@
 
     .chip {
       font-size: 11px;
-      padding: 5px 10px;
+      padding: 5px 11px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.9);
       box-shadow: var(--shadow-chip);
       white-space: nowrap;
     }
 
     .chip-accent {
-      border-color: rgba(79, 70, 229, 0.8);
-      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.18), #020617 55%);
+      border-color: rgba(99, 102, 241, 0.9);
+      background: radial-gradient(circle at 0 0, rgba(79, 70, 229, 0.52), #020617 55%);
     }
 
     .hero-actions {
@@ -227,21 +331,21 @@
       border: none;
       padding: 9px 18px;
       font-size: 13px;
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
+      background: linear-gradient(135deg, #6366f1, #22c55e);
       color: white;
       font-weight: 500;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 1);
       transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.02);
-      box-shadow: 0 24px 45px rgba(15, 23, 42, 1);
+      transform: translateY(-1px) translateX(0.5px);
+      filter: brightness(1.04);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 1);
     }
 
     .btn-ghost {
@@ -249,20 +353,21 @@
       border: 1px solid rgba(148, 163, 184, 0.7);
       padding: 8px 14px;
       font-size: 13px;
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.86);
       color: var(--muted);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s;
+      transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.15s, border-color 0.2s;
     }
 
     .btn-ghost:hover {
-      background: rgba(148, 163, 184, 0.15);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.22), #020617);
       color: var(--text);
       transform: translateY(-1px);
       box-shadow: var(--shadow-chip);
+      border-color: rgba(148, 163, 184, 0.85);
     }
 
     .hero-meta {
@@ -281,7 +386,7 @@
       background: rgba(148, 163, 184, 0.8);
     }
 
-    /* Hero Right Card */
+    /* Right: Profile Card */
 
     .hero-right {
       display: flex;
@@ -290,14 +395,31 @@
 
     .profile-card {
       width: 100%;
-      max-width: 340px;
+      max-width: 360px;
       border-radius: 24px;
       padding: 18px 18px 16px;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #020617 100%);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+      border: 1px solid rgba(148, 163, 184, 0.22);
       box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(26px);
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.7), rgba(37, 99, 235, 0.1), rgba(22, 163, 74, 0.7)) border-box;
+      -webkit-mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.45;
+      pointer-events: none;
     }
 
     .profile-top {
@@ -305,20 +427,27 @@
       align-items: center;
       gap: 14px;
       margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .avatar {
-      width: 64px;
-      height: 64px;
+      width: 66px;
+      height: 66px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #22c55e, #4f46e5);
-      border: 2px solid rgba(15, 23, 42, 0.9);
+      background: conic-gradient(from 210deg, #22c55e, #06b6d4, #6366f1, #22c55e);
       display: grid;
       place-items: center;
-      font-size: 28px;
-      font-weight: 700;
-      color: white;
-      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
     }
 
     .profile-name {
@@ -332,20 +461,22 @@
     }
 
     .profile-badge {
-      margin-top: 4px;
+      margin-top: 5px;
       font-size: 10px;
-      padding: 3px 9px;
+      padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(79, 70, 229, 0.18);
-      border: 1px solid rgba(79, 70, 229, 0.7);
+      background: rgba(22, 163, 74, 0.16);
+      border: 1px solid rgba(34, 197, 94, 0.6);
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }
 
     .profile-badge span {
       font-size: 8px;
-      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #bbf7d0;
     }
 
     .profile-grid {
@@ -354,13 +485,15 @@
       gap: 10px;
       margin-bottom: 14px;
       font-size: 11px;
+      position: relative;
+      z-index: 1;
     }
 
     .profile-pill {
       border-radius: 14px;
       padding: 7px 9px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(31, 41, 55, 0.95);
     }
 
     .pill-label {
@@ -368,7 +501,7 @@
       letter-spacing: 0.12em;
       font-size: 9px;
       color: var(--muted);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .pill-value {
@@ -382,6 +515,8 @@
       font-size: 10px;
       color: var(--muted);
       margin-top: 6px;
+      position: relative;
+      z-index: 1;
     }
 
     .social-links {
@@ -393,31 +528,33 @@
       width: 22px;
       height: 22px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.7);
       display: grid;
       place-items: center;
       font-size: 11px;
       cursor: pointer;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
-      background: rgba(15, 23, 42, 0.8);
+      transition: background 0.2s, transform 0.15s, box-shadow 0.15s, border-color 0.2s;
+      background: rgba(15, 23, 42, 0.95);
     }
 
     .social-pill:hover {
-      background: rgba(79, 70, 229, 0.2);
+      background: radial-gradient(circle at 0 0, rgba(99, 102, 241, 0.6), #020617);
       transform: translateY(-1px);
       box-shadow: var(--shadow-chip);
+      border-color: rgba(129, 140, 248, 0.9);
     }
 
     .profile-orb {
       position: absolute;
-      width: 220px;
-      height: 220px;
+      width: 260px;
+      height: 260px;
       border-radius: 999px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent 70%);
-      top: -80px;
-      right: -70px;
-      opacity: 0.17;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.6), transparent 70%);
+      top: -120px;
+      right: -120px;
+      opacity: 0.2;
       pointer-events: none;
+      filter: blur(2px);
     }
 
     /* Sections */
@@ -437,12 +574,19 @@
     .section-title {
       font-size: 16px;
       font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, #6366f1, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .section-kicker {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       color: var(--muted);
       margin-bottom: 4px;
     }
@@ -452,34 +596,51 @@
       color: var(--muted);
     }
 
-    .section-link {
-      font-size: 11px;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
+    /* Cards & Grids */
 
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .card {
       border-radius: var(--radius-xl);
       padding: 14px;
-      background: var(--card);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
       font-size: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s, background 0.18s;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.18s;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px) translateX(0.5px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+      border-color: rgba(99, 102, 241, 0.8);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.99), rgba(15, 23, 42, 0.95));
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card-tag {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--muted);
       margin-bottom: 4px;
     }
@@ -487,13 +648,13 @@
     .card-title {
       font-size: 13px;
       font-weight: 500;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .card-body {
       font-size: 11px;
       color: var(--muted);
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     .card-meta {
@@ -508,8 +669,8 @@
     .pill-soft {
       border-radius: 999px;
       padding: 4px 8px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(51, 65, 85, 0.9);
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(51, 65, 85, 0.95);
       font-size: 10px;
     }
 
@@ -520,12 +681,12 @@
       margin-top: 6px;
     }
 
-    /* Skills list */
+    /* Skills / Timeline */
 
     .skills-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 2fr);
-      gap: 16px;
+      gap: 18px;
     }
 
     .skills-list {
@@ -538,8 +699,8 @@
       padding: 6px 11px;
       border-radius: 999px;
       font-size: 11px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.8);
     }
 
     .timeline {
@@ -580,15 +741,38 @@
 
     .contact-card {
       border-radius: var(--radius-xl);
-      padding: 16px;
-      background: linear-gradient(135deg, #1f2937, #020617 65%);
+      padding: 18px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 1));
       border: 1px solid rgba(148, 163, 184, 0.5);
       box-shadow: var(--shadow-soft);
       font-size: 12px;
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
-      gap: 16px;
+      gap: 18px;
       align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.9), rgba(37, 99, 235, 0.1), rgba(34, 197, 94, 0.9)) border-box;
+      -webkit-mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .contact-label {
@@ -596,7 +780,7 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--muted);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
 
     .contact-title {
@@ -614,6 +798,8 @@
     .contact-details {
       font-size: 11px;
       color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
 
     .contact-details a {
@@ -632,7 +818,7 @@
 
     /* Responsive */
 
-    @media (max-width: 840px) {
+    @media (max-width: 880px) {
       header {
         flex-wrap: wrap;
         align-items: flex-start;
@@ -659,13 +845,13 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 620px) {
       .page {
         padding: 18px 14px 40px;
       }
 
       header {
-        border-radius: 14px;
+        border-radius: 16px;
       }
 
       .card-grid {
@@ -677,7 +863,7 @@
       }
 
       .hero-title {
-        font-size: 26px;
+        font-size: 28px;
       }
     }
   </style>
@@ -687,18 +873,20 @@
     <!-- Header -->
     <header>
       <div class="logo">
-        <div class="logo-mark">D</div>
+        <div class="logo-mark">
+          <span>D</span>
+        </div>
         <div>
           <div class="logo-text-main">Dilware Alam</div>
-          <div class="logo-text-sub">Cyber Security • Creator</div>
+          <div class="logo-text-sub">Cyber Security · Ethical Hacking · OSINT</div>
         </div>
       </div>
 
       <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#brands">Brands</a>
-        <a href="#contact">Contact</a>
+        <a href="#about"><span>About</span></a>
+        <a href="#projects"><span>Labs</span></a>
+        <a href="#brands"><span>Handles</span></a>
+        <a href="#contact"><span>Contact</span></a>
       </nav>
 
       <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
@@ -711,32 +899,35 @@
     <main class="hero">
       <div class="hero-left">
         <div class="eyebrow">
-          <span class="eyebrow-badge">Open to collaborations</span>
-          <span>Portfolio • 2025</span>
+          <span class="eyebrow-badge">
+            <span class="pulse-dot"></span>
+            Open to cyber collabs
+          </span>
+          <span>Portfolio · 2025</span>
         </div>
 
         <h1 class="hero-title">
           I’m <span>Dilware Alam</span>,  
-          blending Cyber Security & Digital Creation.
+          a Cyber Security student focused on ethical hacking & CNPT.
         </h1>
 
         <p class="hero-subtitle">
-          BSc Cyber Security student.  
-          I explore the intersection of security, markets, and media – from ethical hacking
-          and OSINT and storytelling through content & eSports.
+          BSc Cyber Security student building solid fundamentals in networking, Linux,
+          ethical hacking and OSINT. I’m working towards CNPT and documenting my journey
+          through labs, notes and content under <strong>kernel_krypt</strong>.
         </p>
 
         <div class="hero-tags">
-          <div class="chip chip-accent">BSc Cyber Security (Year 1)</div>
-          
-          <div class="chip">Ethical Hacking & OSINT</div>
-          <div class="chip">Technical Analysis</div>
-          <div class="chip">eSports & Content</div>
+          <div class="chip chip-accent">BSc Cyber Security · Year 1</div>
+          <div class="chip">Ethical Hacking</div>
+          <div class="chip">OSINT & Recon</div>
+          <div class="chip">CNPT (Upcoming Goal)</div>
+          <div class="chip">@kernel_krypt</div>
         </div>
 
         <div class="hero-actions">
           <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
-            View my work <span>↓</span>
+            View my labs <span>↓</span>
           </button>
           <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
             More about me
@@ -746,7 +937,7 @@
         <div class="hero-meta">
           <span>Based in India (IST)</span>
           <span class="dot"></span>
-          <span>Interested in CyberSec internships & collabs</span>
+          <span>Focused on Cyber Security & Ethical Hacking only</span>
         </div>
       </div>
 
@@ -755,13 +946,15 @@
         <article class="profile-card" aria-label="Profile summary">
           <div class="profile-orb"></div>
           <div class="profile-top">
-            <div class="avatar">D</div>
+            <div class="avatar">
+              <img src="profile.jpg" alt="Photo of Dilware Alam" />
+            </div>
             <div>
               <div class="profile-name">Dilware Alam</div>
-              <div class="profile-role">Cyber Security Student • Research</div>
+              <div class="profile-role">Cyber Security Student · Ethical Hacking</div>
               <div class="profile-badge">
-                <span>LIVE</span>
-                Building in public – security, markets & media.
+                <span>Live</span>
+                Learning in public · CNPT on the radar.
               </div>
             </div>
           </div>
@@ -769,27 +962,27 @@
           <div class="profile-grid">
             <div class="profile-pill">
               <div class="pill-label">Focus</div>
-              <div class="pill-value">Cyber Security • Ethical Hacking • OSINT</div>
+              <div class="pill-value">Cyber Security · Ethical Hacking · OSINT</div>
             </div>
             <div class="profile-pill">
-              <div class="pill-label">Also into</div>
-              <div class="pill-value">Technical Analysis • Psychology</div>
+              <div class="pill-label">Lab Work</div>
+              <div class="pill-value">Kali, VMs, network labs, recon practice</div>
             </div>
             <div class="profile-pill">
-              <div class="pill-label">Current Projects</div>
-              <div class="pill-value">kernel_krypt • eSports content</div>
+              <div class="pill-label">Upcoming Goal</div>
+              <div class="pill-value">CNPT – Certified Network Penetration Tester</div>
             </div>
             <div class="profile-pill">
-              <div class="pill-label">Looking for</div>
-              <div class="pill-value">Internships • Collabs • Mentors</div>
+              <div class="pill-label">Content</div>
+              <div class="pill-value">@kernel_krypt · cyber & hacking posts</div>
             </div>
           </div>
 
           <div class="profile-footer">
-            <span>Let’s connect online:</span>
+            <span>Find me online:</span>
             <div class="social-links">
-              <!-- Replace # with your actual links -->
-              <a class="social-pill" href="#" aria-label="Instagram">IG</a>
+              <!-- Replace other # with your actual links -->
+              <a class="social-pill" href="https://instagram.com/kernel_krypt" target="_blank" aria-label="Instagram">@</a>
               <a class="social-pill" href="#" aria-label="LinkedIn">in</a>
               <a class="social-pill" href="#" aria-label="GitHub">GH</a>
               <a class="social-pill" href="#" aria-label="YouTube">YT</a>
@@ -804,35 +997,36 @@
       <div class="section-header">
         <div>
           <div class="section-kicker">About</div>
-          <h2 class="section-title">Who I am & what I’m building</h2>
+          <h2 class="section-title"><span>Profile</span> · Who I am & what I’m building</h2>
         </div>
       </div>
       <div class="skills-grid">
         <div>
           <p class="section-subtitle" style="margin-bottom: 10px;">
-            I’m a Cyber Security student.
-            I like understanding how systems work – whether it’s a computer network, a
-            financial market, or human behaviour on social media.
+            I’m a Cyber Security student obsessed with how systems can be broken and defended.
+            From Linux and networking to reconnaissance and basic exploitation,
+            I’m building a strong base for a professional career in ethical hacking.
           </p>
           <p class="section-subtitle">
-            My current goals:
+            Current focus areas:
             <br />
-            – Build a strong base in security (Linux, networking, tools, ethical hacking)  
-             
-            – Grow as a content creator around security, psychology & money.
+            – Create and maintain my own labs (Kali, VMs, vulnerable targets)  
+            – Learn practical recon, enumeration and reporting style  
+            – Work towards <strong>CNPT</strong> and other hands-on pentesting skills  
+            – Share my journey and concepts through <strong>kernel_krypt</strong>.
           </p>
 
           <div style="margin-top: 14px;">
             <div class="section-kicker" style="margin-bottom: 6px;">Skills Snapshot</div>
             <div class="skills-list">
-              <span class="skill-chip">Linux • Terminal basics</span>
-              <span class="skill-chip">Kali / VirtualBox setup</span>
+              <span class="skill-chip">Linux · Terminal basics</span>
+              <span class="skill-chip">Kali / VirtualBox lab</span>
               <span class="skill-chip">Networking fundamentals</span>
               <span class="skill-chip">Ethical hacking basics</span>
-              <span class="skill-chip">Technical analysis</span>
-              
-              <span class="skill-chip">Content planning</span>
-              <span class="skill-chip">Storytelling</span>
+              <span class="skill-chip">OSINT & reconnaissance</span>
+              <span class="skill-chip">Vulnerability discovery (learning)</span>
+              <span class="skill-chip">Note-taking & documentation</span>
+              <span class="skill-chip">Explaining concepts via content</span>
             </div>
           </div>
         </div>
@@ -842,13 +1036,16 @@
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-title">BSc Cyber Security</div>
-              <div class="timeline-meta">Year 1 • Focus: networking, Linux, ethical hacking</div>
+              <div class="timeline-meta">Year 1 · Building foundations in networking, Linux & security concepts</div>
             </div>
-            
             <div class="timeline-item">
-              <div class="timeline-title">Creator & eSports Enthusiast</div>
+              <div class="timeline-title">Ethical Hacking Journey</div>
+              <div class="timeline-meta">Setting up labs, learning tools, starting with recon & basic exploitation</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">CNPT (Upcoming Goal)</div>
               <div class="timeline-meta">
-                Experimenting with projects like MROx eSports, kernel_krypt and more.
+                Working towards CNPT as a structured path into network penetration testing & professional pentesting.
               </div>
             </div>
           </div>
@@ -856,25 +1053,25 @@
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects / Labs -->
     <section id="projects">
       <div class="section-header">
         <div>
-          <div class="section-kicker">Projects</div>
-          <h2 class="section-title">Things I’m experimenting with</h2>
+          <div class="section-kicker">Labs & Projects</div>
+          <h2 class="section-title"><span>Work in Progress</span> · Hands-on cyber experiments</h2>
           <p class="section-subtitle">
-            A mix of security labs, research notes, and content experiments.
+            A growing collection of labs, notes and content ideas around cyber security & ethical hacking.
           </p>
         </div>
       </div>
 
       <div class="card-grid">
         <article class="card">
-          <div class="card-tag">Security Lab</div>
-          <div class="card-title">Personal Kali Linux Lab</div>
+          <div class="card-tag">Lab</div>
+          <div class="card-title">Personal Kali Linux Environment</div>
           <p class="card-body">
-            VirtualBox-based Kali lab for learning ethical hacking, networking,
-            reconnaissance, and basic exploitation in a safe environment.
+            VirtualBox-based Kali lab to learn ethical hacking, network mapping, reconnaissance
+            and basic exploitation in a controlled environment with detailed documentation.
           </p>
           <div class="stack">
             <span class="pill-soft">Kali Linux</span>
@@ -888,20 +1085,20 @@
         </article>
 
         <article class="card">
-          <div class="card-tag">Finance</div>
-          <div class="card-title">Market Psychology Notebook</div>
+          <div class="card-tag">Learning Path</div>
+          <div class="card-title">CNPT Prep Roadmap</div>
           <p class="card-body">
-            A personal notebook combining technical analysis, risk management,
-            and trading psychology, inspired by real charts and behaviour patterns.
+            A personal roadmap for CNPT: networking revision, Linux hardening, lab practice,
+            documentation habits and building the mindset of a penetration tester.
           </p>
           <div class="stack">
-            <span class="pill-soft">Technical Analysis</span>
-            <span class="pill-soft">Risk</span>
-            <span class="pill-soft">Journaling</span>
+            <span class="pill-soft">CNPT prep</span>
+            <span class="pill-soft">Network security</span>
+            <span class="pill-soft">Pentest mindset</span>
           </div>
           <div class="card-meta">
-            <span>Ongoing</span>
-            <span>Private research</span>
+            <span>Planning & execution</span>
+            <span>Private notes</span>
           </div>
         </article>
 
@@ -909,68 +1106,68 @@
           <div class="card-tag">Content</div>
           <div class="card-title">Dark Side of AI & Systems</div>
           <p class="card-body">
-            Concept for short-form content on AI, surveillance, dark psychology,
-            and how systems influence people – mixing research with storytelling.
+            Concept for short-form content on AI, surveillance, privacy, tracking
+            and how systems quietly watch people — explained from a security perspective.
           </p>
           <div class="stack">
-            <span class="pill-soft">AI & Ethics</span>
-            <span class="pill-soft">Psychology</span>
+            <span class="pill-soft">AI & security</span>
+            <span class="pill-soft">Privacy</span>
             <span class="pill-soft">Reels / Shorts</span>
           </div>
           <div class="card-meta">
             <span>Concept stage</span>
-            <span>Open to collaborators</span>
+            <span>Posted via @kernel_krypt</span>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Brands / Handles -->
+    <!-- Handles / Brands -->
     <section id="brands">
       <div class="section-header">
         <div>
-          <div class="section-kicker">Handles & Brands</div>
-          <h2 class="section-title">Digital identities I work on</h2>
+          <div class="section-kicker">Handles</div>
+          <h2 class="section-title"><span>Digital Identity</span> · Where I share cyber content</h2>
         </div>
       </div>
 
       <div class="card-grid">
         <article class="card">
-          <div class="card-tag">Instagram Page</div>
+          <div class="card-tag">Instagram</div>
           <div class="card-title">kernel_krypt</div>
           <p class="card-body">
-            A page idea exploring hidden stories, controversial topics, and
-            untold sides of history, systems, and power.
+            My Instagram page dedicated to cyber security & ethical hacking —
+            breaking down concepts, tools, attack paths and mindset in simple language.
           </p>
           <div class="card-meta">
-            <span>Theme</span>
-            <span>Dark history • Exposed narratives</span>
+            <span>Main handle</span>
+            <span><a href="https://instagram.com/kernel_krypt" target="_blank">@kernel_krypt</a></span>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-tag">eSports</div>
-          <div class="card-title">MROx eSports</div>
+          <div class="card-tag">Content Theme</div>
+          <div class="card-title">The Dark Side of Systems</div>
           <p class="card-body">
-            eSports identity focused on BGMI, ScarFall 2.0, and Valorant –
-            combining gameplay, strategy and content.
+            Content ideas around dark patterns, tracking, data misuse,
+            and how everyday apps are designed with security trade-offs.
           </p>
           <div class="card-meta">
-            <span>Role</span>
-            <span>Player • Creator</span>
+            <span>Format</span>
+            <span>Reels · Carousels · Threads</span>
           </div>
         </article>
 
         <article class="card">
-          <div class="card-tag">Quote</div>
-          <div class="card-title">Personal Motto</div>
+          <div class="card-tag">Motto</div>
+          <div class="card-title">Operating Principle</div>
           <p class="card-body">
             “Chase your purpose with unwavering attitude, let your creations
             speak louder than your words, and watch as the world bends to your vision.”
           </p>
           <div class="card-meta">
             <span>— Dilware</span>
-            <span>Mindset • Vision</span>
+            <span>Mindset · Consistency</span>
           </div>
         </article>
       </div>
@@ -981,32 +1178,31 @@
       <div class="section-header">
         <div>
           <div class="section-kicker">Contact</div>
-          <h2 class="section-title">Let’s build something</h2>
+          <h2 class="section-title"><span>Let’s build</span> · Labs, collabs & ideas</h2>
         </div>
       </div>
 
       <div class="contact-card">
-        <div>
+        <div class="contact-inner">
           <div class="contact-label">Open for</div>
-          <div class="contact-title">Internships, collaborations & learning opportunities.</div>
+          <div class="contact-title">Cyber security, ethical hacking & content collabs.</div>
           <p class="contact-note">
-            If you’re working on cyber security, OSINT, content,
-            or any project where security and psychology meet money & media,
-            I’d love to connect.
+            If you’re working on cyber security training, CTFs, OSINT, or security-focused content
+            and want to collaborate, brainstorm or share knowledge, feel free to reach out.
           </p>
           <button class="btn-primary"
-            onclick="location.href='mailto:youremail@example.com?subject=Let\'s%20Connect%20–%20From%20your%20website';">
+            onclick="location.href='mailto:youremail@example.com?subject=Let%20s%20Connect%20-%20From%20your%20cyber%20portfolio';">
             Email me directly
           </button>
         </div>
         <div class="contact-details">
           <p><strong>Email</strong><br />
-            <a href="mailto:dilwarealam@hotmail.com">dilwarealam@hotmail.com</a>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
           </p>
           <p style="margin-top: 8px;"><strong>Social</strong><br />
-            Instagram: <a href="https://www.instagram.com/ig.dilware">@ig.dilware</a><br />
-            LinkedIn: <a href="https://www.linkedin.com/in/dilwarealam/">Your LinkedIn URL</a><br />
-            GitHub: <a href="github.com/dilware-alam">github.com/yourusername</a>
+            Instagram: <a href="https://instagram.com/kernel_krypt" target="_blank">@kernel_krypt</a><br />
+            LinkedIn: <a href="#">Your LinkedIn URL</a><br />
+            GitHub: <a href="#">github.com/yourusername</a>
           </p>
         </div>
       </div>
@@ -1015,7 +1211,7 @@
     <!-- Footer -->
     <footer>
       <span>© <span id="year"></span> Dilware Alam. All rights reserved.</span>
-      <!--<span>Built as a simple, fast, single-page site.</span>-->
+      <span>Cyber Security & Ethical Hacking focused portfolio.</span>
     </footer>
   </div>
 
@@ -1025,4 +1221,3 @@
   </script>
 </body>
 </html>
-
