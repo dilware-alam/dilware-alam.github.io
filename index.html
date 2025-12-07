@@ -41,7 +41,6 @@
       overflow-x: hidden;
     }
 
-    /* Futuristic background grid */
     body::before {
       content: "";
       position: fixed;
@@ -110,31 +109,24 @@
       gap: 10px;
     }
 
+    /* FIXED HEADER LOGO: clean circular photo */
     .logo-mark {
       width: 34px;
       height: 34px;
       border-radius: 999px;
-      background: conic-gradient(from 220deg, #22c55e, #6366f1, #06b6d4, #22c55e);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+      background: radial-gradient(circle at top, #1f2937, #020617);
       display: grid;
       place-items: center;
-      font-weight: 700;
-      font-size: 18px;
-      color: #0b1120;
-      position: relative;
-      overflow: hidden;
     }
 
-    .logo-mark::after {
-      content: "";
-      position: absolute;
-      inset: 3px;
-      border-radius: inherit;
-      background: radial-gradient(circle at 30% 20%, #020617, #020617 55%, #020617 100%);
-    }
-
-    .logo-mark span {
-      position: relative;
-      z-index: 1;
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
     }
 
     .logo-text-main {
@@ -257,18 +249,9 @@
     }
 
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      70% {
-        transform: scale(1.8);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 0;
-      }
+      0% { transform: scale(1); opacity: 1; }
+      70% { transform: scale(1.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 0; }
     }
 
     .hero-title {
@@ -596,8 +579,6 @@
       color: var(--muted);
     }
 
-    /* Cards & Grids */
-
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -666,6 +647,12 @@
       margin-top: 4px;
     }
 
+    .card-meta a {
+      font-size: 10px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .pill-soft {
       border-radius: 999px;
       padding: 4px 8px;
@@ -680,8 +667,6 @@
       gap: 6px;
       margin-top: 6px;
     }
-
-    /* Skills / Timeline */
 
     .skills-grid {
       display: grid;
@@ -736,8 +721,6 @@
       font-size: 10px;
       color: var(--muted);
     }
-
-    /* Contact */
 
     .contact-card {
       border-radius: var(--radius-xl);
@@ -816,8 +799,6 @@
       gap: 8px;
     }
 
-    /* Responsive */
-
     @media (max-width: 880px) {
       header {
         flex-wrap: wrap;
@@ -874,7 +855,7 @@
     <header>
       <div class="logo">
         <div class="logo-mark">
-          <span>D</span>
+          <img src="profile.jpg" alt="Logo - Dilware Alam" />
         </div>
         <div>
           <div class="logo-text-main">Dilware Alam</div>
@@ -885,6 +866,7 @@
       <nav>
         <a href="#about"><span>About</span></a>
         <a href="#projects"><span>Labs</span></a>
+        <a href="#certifications"><span>Certifications</span></a>
         <a href="#brands"><span>Handles</span></a>
         <a href="#contact"><span>Contact</span></a>
       </nav>
@@ -1009,9 +991,9 @@
           <p class="section-subtitle">
             Current focus areas:
             <br />
-            – Create and maintain my own labs (Kali, VMs, vulnerable targets)  
-            – Learn practical recon, enumeration and reporting style  
-            – Work towards <strong>CNPT</strong> and other hands-on pentesting skills  
+            – Create and maintain my own labs (Kali, VMs, vulnerable targets)  <br />
+            – Learn practical recon, enumeration and reporting style  <br />
+            – Work towards <strong>CNPT</strong> and other hands-on pentesting skills  <br />
             – Share my journey and concepts through <strong>kernel_krypt</strong>.
           </p>
 
@@ -1059,7 +1041,7 @@
           <div class="section-kicker">Labs & Projects</div>
           <h2 class="section-title"><span>Work in Progress</span> · Hands-on cyber experiments</h2>
           <p class="section-subtitle">
-            No projects yet — learning phase. Right now I’m focused on building labs, practising basics
+            No public projects yet — learning phase. Right now I’m focused on building labs, practising basics
             and planning future public projects around cyber security & ethical hacking.
           </p>
         </div>
@@ -1117,6 +1099,128 @@
           <div class="card-meta">
             <span>Concept stage</span>
             <span>Posted via @kernel_krypt</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Certifications (Tata, Deloitte, AI/ML, Git, Cyberer) -->
+    <section id="certifications">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Certifications</div>
+          <h2 class="section-title">
+            <span>Proof of Skills</span> · Courses & simulations
+          </h2>
+          <p class="section-subtitle">
+            Only key details are shown here. Click any certificate to open and verify.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <!-- Tata Cyber -->
+        <article class="card">
+          <div class="card-tag">Certification</div>
+          <div class="card-title">Tata Cyber Security Programme</div>
+          <p class="card-body">
+            Completed cyber security training under Tata, focusing on real-world threats,
+            defensive security practices and basic industry workflows.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">Cyber security</span>
+            <span class="pill-soft">Threat awareness</span>
+            <span class="pill-soft">Industry exposure</span>
+          </div>
+          <div class="card-meta">
+            <span>Dec 6 2025 · Tata</span>
+            <span>
+              <a href="tata-cybersecurity.pdf" target="_blank">Open certificate →</a>
+            </span>
+          </div>
+        </article>
+
+        <!-- Deloitte / Forage -->
+        <article class="card">
+          <div class="card-tag">Job Simulation</div>
+          <div class="card-title">Deloitte Cybersecurity Analyst – IAM</div>
+          <p class="card-body">
+            Completed a Deloitte-sponsored cybersecurity job simulation on Forage with hands-on work in
+            Identity & Access Management (IAM), security strategy and platform integration.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">IAM</span>
+            <span class="pill-soft">Security strategy</span>
+            <span class="pill-soft">Platform integration</span>
+          </div>
+          <div class="card-meta">
+            <span>Dec 6, 2025 · Deloitte / Forage</span>
+            <span>
+              <a href="cybersecurity-analyst-forage.pdf" target="_blank">Open certificate →</a>
+            </span>
+          </div>
+        </article>
+
+        <!-- AI & ML -->
+        <article class="card">
+          <div class="card-tag">Workshop</div>
+          <div class="card-title">AI and Machine Learning with Data Science</div>
+          <p class="card-body">
+            Completed a 2-day offline workshop on AI and Machine Learning with Data Science at IIT Guwahati,
+            exploring ML concepts, data pipelines and real-world applications.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">AI</span>
+            <span class="pill-soft">Machine learning</span>
+            <span class="pill-soft">Data science</span>
+          </div>
+          <div class="card-meta">
+            <span>Mar 9–10, 2024 · IIT Guwahati</span>
+            <span>
+              <a href="ai-ml-data-science-iitg-2024.jpg" target="_blank">Open certificate →</a>
+            </span>
+          </div>
+        </article>
+
+        <!-- WsCube Git & GitHub -->
+        <article class="card">
+          <div class="card-tag">Workshop</div>
+          <div class="card-title">Master Git & GitHub in 90 Minutes</div>
+          <p class="card-body">
+            Attended a WsCube Tech masterclass on Git & GitHub covering repositories,
+            commits, branching and collaboration workflows.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">Git</span>
+            <span class="pill-soft">GitHub</span>
+            <span class="pill-soft">Version control</span>
+          </div>
+          <div class="card-meta">
+            <span>Dec 5, 2025 · WsCube Tech</span>
+            <span>
+              <a href="wscube-master-git-github.pdf" target="_blank">Open certificate →</a>
+            </span>
+          </div>
+        </article>
+
+        <!-- Cyberer Sahajpath -->
+        <article class="card">
+          <div class="card-tag">Training</div>
+          <div class="card-title">Cyberer Sahajpath – Cyber Security Awareness</div>
+          <p class="card-body">
+            Cyber security awareness training conducted by the Cyber Security Centre of Excellence,
+            Government of West Bengal, focused on cyber hygiene and safe online behaviour.
+          </p>
+          <div class="stack">
+            <span class="pill-soft">Cyber awareness</span>
+            <span class="pill-soft">Online safety</span>
+            <span class="pill-soft">Govt of WB</span>
+          </div>
+          <div class="card-meta">
+            <span>Mar 22–28, 2022 · CS-CoE West Bengal</span>
+            <span>
+              <a href="wb-cyber-awareness-2022.jpg" target="_blank">Open certificate →</a>
+            </span>
           </div>
         </article>
       </div>
@@ -1216,7 +1320,6 @@
   </div>
 
   <script>
-    // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
