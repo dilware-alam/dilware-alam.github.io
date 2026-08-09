@@ -850,8 +850,340 @@
       }
     }
   </style>
+
+  <style>
+    /* =====================================================
+       EXCITING ENHANCEMENTS – Matrix, Glitch, Reveal, etc.
+       ===================================================== */
+
+    /* Matrix Rain Canvas */
+    #matrix-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+
+    /* Custom cursor */
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s, background 0.2s;
+      box-shadow: 0 0 10px #22c55e, 0 0 22px rgba(34, 197, 94, 0.6);
+    }
+
+    .cursor-ring {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid rgba(34, 197, 94, 0.7);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.12s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+    }
+
+    /* Note: cursor ring expand on hover is handled by JavaScript event listeners */
+
+    /* Glitch effect on hero title name */
+    .glitch {
+      position: relative;
+      display: inline-block;
+      animation: glitch-skew 8s infinite linear alternate-reverse;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(135deg, #6366f1, #22c55e, #06b6d4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .glitch::before {
+      left: 2px;
+      text-shadow: none;
+      clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+      animation: glitch-anim-1 6s infinite linear alternate-reverse;
+      opacity: 0.85;
+      filter: hue-rotate(60deg);
+    }
+
+    .glitch::after {
+      left: -2px;
+      clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+      animation: glitch-anim-2 6s infinite linear alternate-reverse;
+      opacity: 0.85;
+      filter: hue-rotate(-60deg);
+    }
+
+    @keyframes glitch-anim-1 {
+      0%, 90%, 100% { clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%); transform: translate(0); }
+      92% { clip-path: polygon(0 8%, 100% 8%, 100% 21%, 0 21%); transform: translate(-3px, 0); }
+      94% { clip-path: polygon(0 54%, 100% 54%, 100% 72%, 0 72%); transform: translate(3px, 0); }
+      96% { clip-path: polygon(0 31%, 100% 31%, 100% 47%, 0 47%); transform: translate(-2px, 0); }
+    }
+
+    @keyframes glitch-anim-2 {
+      0%, 90%, 100% { clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%); transform: translate(0); }
+      93% { clip-path: polygon(0 75%, 100% 75%, 100% 89%, 0 89%); transform: translate(3px, 0); }
+      95% { clip-path: polygon(0 44%, 100% 44%, 100% 58%, 0 58%); transform: translate(-3px, 0); }
+      97% { clip-path: polygon(0 62%, 100% 62%, 100% 78%, 0 78%); transform: translate(2px, 0); }
+    }
+
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      30% { transform: skew(0deg); }
+      31% { transform: skew(-0.5deg); }
+      32% { transform: skew(0deg); }
+      80% { transform: skew(0deg); }
+      81% { transform: skew(0.5deg); }
+      82% { transform: skew(0deg); }
+      100% { transform: skew(0deg); }
+    }
+
+    /* Typewriter cursor blink */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: #22c55e;
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink-cursor 0.9s step-end infinite;
+      box-shadow: 0 0 6px rgba(34, 197, 94, 0.8);
+    }
+
+    @keyframes blink-cursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered card reveal delays */
+    .card-grid .card:nth-child(1) { transition-delay: 0s; }
+    .card-grid .card:nth-child(2) { transition-delay: 0.1s; }
+    .card-grid .card:nth-child(3) { transition-delay: 0.2s; }
+    .card-grid .card:nth-child(4) { transition-delay: 0.05s; }
+    .card-grid .card:nth-child(5) { transition-delay: 0.15s; }
+
+    /* Enhanced card glow on hover */
+    .card:hover {
+      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.5),
+                  0 0 22px rgba(99, 102, 241, 0.3),
+                  0 24px 60px rgba(0, 0, 0, 0.9) !important;
+    }
+
+    /* Neon glow on skill chips */
+    .skill-chip {
+      transition: border-color 0.2s, box-shadow 0.2s, color 0.2s;
+    }
+
+    .skill-chip:hover {
+      border-color: rgba(34, 197, 94, 0.9);
+      color: #bbf7d0;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+    }
+
+    /* Terminal boot banner */
+    .terminal-banner {
+      background: rgba(2, 6, 23, 0.95);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11px;
+      color: #4ade80;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal-banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #22c55e, transparent);
+      animation: terminal-scan 3s linear infinite;
+    }
+
+    @keyframes terminal-scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .terminal-banner .t-prompt { color: #6366f1; }
+    .terminal-banner .t-ok { color: #22c55e; }
+    .terminal-banner .t-warn { color: #f59e0b; }
+
+    /* Stat counters in hero meta */
+    .stat-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+    }
+
+    .stat-counter .num {
+      font-weight: 700;
+      font-size: 14px;
+      background: linear-gradient(135deg, #6366f1, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Animated neon border on profile card */
+    @keyframes border-glow {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 0.75; }
+    }
+
+    .profile-card::before {
+      animation: border-glow 3s ease-in-out infinite;
+    }
+
+    /* Section divider laser line */
+    .laser-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), rgba(34, 197, 94, 0.6), transparent);
+      margin: 6px 0 0;
+      border: none;
+      position: relative;
+    }
+
+    .laser-divider::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 1px;
+      background: rgba(99, 102, 241, 1);
+      box-shadow: 0 0 8px rgba(99, 102, 241, 0.9);
+      animation: laser-sweep 4s ease-in-out infinite;
+    }
+
+    @keyframes laser-sweep {
+      0% { left: 0; opacity: 1; }
+      100% { left: calc(100% - 60px); opacity: 0.3; }
+    }
+
+    /* Floating badge animation */
+    .eyebrow-badge {
+      animation: float-badge 4s ease-in-out infinite;
+    }
+
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
+    /* Hex grid pattern behind section headers */
+    .section-kicker {
+      position: relative;
+    }
+
+    /* Neon avatar ring */
+    .avatar {
+      animation: avatar-spin 12s linear infinite;
+    }
+
+    @keyframes avatar-spin {
+      0% { background: conic-gradient(from 0deg, #22c55e, #06b6d4, #6366f1, #22c55e); }
+      100% { background: conic-gradient(from 360deg, #22c55e, #06b6d4, #6366f1, #22c55e); }
+    }
+
+    /* Scanline overlay */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+    }
+
+    /* Hero stats row */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    /* Glow on btn-primary */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover::after { opacity: 1; }
+
+    /* Neon text highlight for section titles */
+    .section-title span {
+      text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+
+    /* =====================================================
+       END EXCITING ENHANCEMENTS
+       ===================================================== */
+  </style>
 </head>
 <body>
+  <!-- Matrix rain canvas -->
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <!-- CRT scanlines overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
   <div class="page">
     <!-- Header -->
     <header>
@@ -894,15 +1226,11 @@
         </div>
 
         <h1 class="hero-title">
-          I’m <span>Dilware Alam</span>,  
-          a Cyber Security student focused on ethical hacking & CNPT.
+          I’m <span class="glitch" data-text="Dilware Alam">Dilware Alam</span>,<br>
+          a Cyber Security student focused on ethical hacking &amp; CNPT.
         </h1>
 
-        <p class="hero-subtitle">
-          BSc Cyber Security student building solid fundamentals in networking, Linux,
-          ethical hacking and OSINT. I’m working towards CNPT and documenting my journey
-          through labs, notes and content under <strong>kernel_krypt</strong>.
-        </p>
+        <p class="hero-subtitle" id="typewriter-target"><span class="typewriter-cursor"></span></p>
 
         <div class="hero-tags">
           <div class="chip chip-accent">BSc Cyber Security · Year 1</div>
@@ -912,6 +1240,11 @@
           <div class="chip">@kernel_krypt</div>
         </div>
 
+        <div class="hero-stats">
+          <div class="stat-counter"><span class="num" data-count="5">0</span> certifications</div>
+          <div class="stat-counter"><span class="num" data-count="3">0</span> active labs</div>
+          <div class="stat-counter"><span class="num">CNPT</span> on radar</div>
+        </div>
         <div class="hero-actions">
           <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
             View my labs <span>↓</span>
@@ -980,11 +1313,20 @@
 
     <!-- About -->
     <section id="about">
-      <div class="section-header">
+      <div class="section-header reveal">
         <div>
           <div class="section-kicker">About</div>
           <h2 class="section-title"><span>Profile</span> · Who I am & what I’m building</h2>
+          <hr class="laser-divider">
         </div>
+      </div>
+      <div class="terminal-banner reveal" aria-label="Terminal output">
+        <span class="t-prompt">root@kernel_krypt:~$</span> whoami<br>
+        <span class="t-ok">▶</span> BSc Cyber Security student — Year 1 | ethical hacking &amp; OSINT focus<br>
+        <span class="t-prompt">root@kernel_krypt:~$</span> cat mission.txt<br>
+        <span class="t-ok">▶</span> Build solid hacking fundamentals → earn CNPT → work in professional pentesting<br>
+        <span class="t-prompt">root@kernel_krypt:~$</span> echo $STATUS<br>
+        <span class="t-warn">▶</span> LEARNING IN PUBLIC — labs active, certifications stacking<span class="typewriter-cursor"></span>
       </div>
       <div class="skills-grid">
         <div>
@@ -1041,10 +1383,11 @@
 
     <!-- Projects / Labs -->
     <section id="projects">
-      <div class="section-header">
+      <div class="section-header reveal">
         <div>
           <div class="section-kicker">Labs & Projects</div>
           <h2 class="section-title"><span>Work in Progress</span> · Hands-on cyber experiments</h2>
+          <hr class="laser-divider">
           <p class="section-subtitle">
             No public projects yet — learning phase. Right now I’m focused on building labs, practising basics
             and planning future public projects around cyber security & ethical hacking.
@@ -1053,7 +1396,7 @@
       </div>
 
       <div class="card-grid">
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Lab</div>
           <div class="card-title">Personal Kali Linux Environment</div>
           <p class="card-body">
@@ -1071,7 +1414,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Learning Path</div>
           <div class="card-title">CNPT Prep Roadmap</div>
           <p class="card-body">
@@ -1089,7 +1432,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Content</div>
           <div class="card-title">Dark Side of AI & Systems</div>
           <p class="card-body">
@@ -1111,12 +1454,13 @@
 
     <!-- Certifications (Tata, Deloitte, AI/ML, Git, Cyberer) -->
     <section id="certifications">
-      <div class="section-header">
+      <div class="section-header reveal">
         <div>
           <div class="section-kicker">Certifications</div>
           <h2 class="section-title">
             <span>Proof of Skills</span> · Courses & simulations
           </h2>
+          <hr class="laser-divider">
           <p class="section-subtitle">
             Only key details are shown here. Click any certificate to open and verify.
           </p>
@@ -1125,7 +1469,7 @@
 
       <div class="card-grid">
         <!-- Tata Cyber -->
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Certification</div>
           <div class="card-title">Tata Cyber Security Programme</div>
           <p class="card-body">
@@ -1146,7 +1490,7 @@
         </article>
 
         <!-- Deloitte / Forage -->
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Job Simulation</div>
           <div class="card-title">Deloitte Cybersecurity Analyst – IAM</div>
           <p class="card-body">
@@ -1167,7 +1511,7 @@
         </article>
 
         <!-- AI & ML -->
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Workshop</div>
           <div class="card-title">AI and Machine Learning with Data Science</div>
           <p class="card-body">
@@ -1188,7 +1532,7 @@
         </article>
 
         <!-- WsCube Git & GitHub -->
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Workshop</div>
           <div class="card-title">Master Git & GitHub in 90 Minutes</div>
           <p class="card-body">
@@ -1209,7 +1553,7 @@
         </article>
 
         <!-- Cyberer Sahajpath -->
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Training</div>
           <div class="card-title">Cyberer Sahajpath – Cyber Security Awareness</div>
           <p class="card-body">
@@ -1233,15 +1577,16 @@
 
     <!-- Handles / Brands -->
     <section id="brands">
-      <div class="section-header">
+      <div class="section-header reveal">
         <div>
           <div class="section-kicker">Handles</div>
           <h2 class="section-title"><span>Digital Identity</span> · Where I share cyber content</h2>
+          <hr class="laser-divider">
         </div>
       </div>
 
       <div class="card-grid">
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Instagram</div>
           <div class="card-title">kernel_krypt</div>
           <p class="card-body">
@@ -1254,7 +1599,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Content Theme</div>
           <div class="card-title">The Dark Side of Systems</div>
           <p class="card-body">
@@ -1267,7 +1612,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <div class="card-tag">Motto</div>
           <div class="card-title">Operating Principle</div>
           <p class="card-body">
@@ -1284,10 +1629,11 @@
 
     <!-- Contact -->
     <section id="contact">
-      <div class="section-header">
+      <div class="section-header reveal">
         <div>
           <div class="section-kicker">Contact</div>
           <h2 class="section-title"><span>Let’s build</span> · Labs, collabs & ideas</h2>
+          <hr class="laser-divider">
         </div>
       </div>
 
@@ -1325,7 +1671,170 @@
   </div>
 
   <script>
+    /* ── Year ── */
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── Custom cursor ── */
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let ringX = 0, ringY = 0, dotX = 0, dotY = 0;
+
+    document.addEventListener('mousemove', e => {
+      dotX = e.clientX; dotY = e.clientY;
+    });
+
+    (function animateCursor() {
+      const newRingX = ringX + (dotX - ringX) * 0.14;
+      const newRingY = ringY + (dotY - ringY) * 0.14;
+      /* Only update DOM when there is meaningful movement */
+      if (Math.abs(newRingX - ringX) > 0.1 || Math.abs(newRingY - ringY) > 0.1) {
+        ringX = newRingX;
+        ringY = newRingY;
+        if (ring) { ring.style.left = ringX + 'px'; ring.style.top = ringY + 'px'; }
+      }
+      if (dot)  { dot.style.left  = dotX  + 'px'; dot.style.top  = dotY  + 'px'; }
+      requestAnimationFrame(animateCursor);
+    })();
+
+    /* Hide custom cursor on touch devices */
+    window.addEventListener('touchstart', () => {
+      if (dot)  dot.style.display  = 'none';
+      if (ring) ring.style.display = 'none';
+    }, { once: true });
+
+    /* ── Matrix Rain ── */
+    (function initMatrix() {
+      const canvas = document.getElementById('matrix-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let W, H, cols, drops;
+      let lastTime = 0;
+      const FRAME_INTERVAL = 45; /* ms between matrix frames */
+
+      /* ASCII + Katakana set; system monospace fonts broadly support these */
+      const CHARS = '01ABCDEF#$%@!?<>{}[]アイウエオカキクケコサシスセソタチツテトナニ';
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        cols  = Math.floor(W / 16);
+        drops = Array.from({ length: cols }, () => Math.random() * -50);
+      }
+
+      function draw(timestamp) {
+        requestAnimationFrame(draw);
+        if (timestamp - lastTime < FRAME_INTERVAL) return;
+        lastTime = timestamp;
+
+        ctx.fillStyle = 'rgba(2, 6, 23, 0.055)';
+        ctx.fillRect(0, 0, W, H);
+        ctx.font = '13px monospace';
+
+        for (let i = 0; i < cols; i++) {
+          const char = CHARS[Math.floor(Math.random() * CHARS.length)];
+          const y = drops[i] * 16;
+
+          /* Top character is bright, trail fades */
+          if (drops[i] * 16 < 20) {
+            ctx.fillStyle = '#ffffff';
+          } else if (Math.random() > 0.92) {
+            ctx.fillStyle = '#22d3ee';  /* occasional cyan accent */
+          } else {
+            ctx.fillStyle = '#22c55e';
+          }
+
+          ctx.fillText(char, i * 16, y);
+
+          if (y > H && Math.random() > 0.975) drops[i] = 0;
+          drops[i] += 0.5;
+        }
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+      requestAnimationFrame(draw);
+    })();
+
+    /* ── Typewriter effect for hero subtitle ──
+       To update the subtitle text, change the `text` constant below. */
+    (function typewriter() {
+      const el = document.getElementById('typewriter-target');
+      if (!el) return;
+      const text = 'BSc Cyber Security student building solid fundamentals in networking, Linux, ethical hacking and OSINT. Working towards CNPT and documenting the journey under kernel_krypt.';
+      const BASE_TYPING_SPEED = 28;  /* ms base delay per character */
+      const TYPING_VARIANCE   = 22;  /* ms random variance for natural feel */
+      let i = 0;
+      const cursor = el.querySelector('.typewriter-cursor');
+
+      function type() {
+        if (i < text.length) {
+          const textNode = document.createTextNode(text.charAt(i));
+          el.insertBefore(textNode, cursor);
+          i++;
+          setTimeout(type, BASE_TYPING_SPEED + Math.random() * TYPING_VARIANCE);
+        }
+      }
+
+      /* Start after a short delay so page has settled */
+      setTimeout(type, 600);
+    })();
+
+    /* ── Scroll reveal ── */
+    (function scrollReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
+    /* ── Animated stat counters ── */
+    (function animateCounters() {
+      const COUNTER_ANIMATION_STEPS = 20; /* number of increment steps */
+      const COUNTER_STEP_INTERVAL   = 60; /* ms between increments */
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          e.target.querySelectorAll('.num[data-count]').forEach(num => {
+            const target = parseInt(num.getAttribute('data-count'), 10);
+            let current = 0;
+            const step = Math.ceil(target / COUNTER_ANIMATION_STEPS);
+            const interval = setInterval(() => {
+              current = Math.min(current + step, target);
+              num.textContent = current;
+              if (current >= target) clearInterval(interval);
+            }, COUNTER_STEP_INTERVAL);
+          });
+          observer.unobserve(e.target);
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.hero-stats').forEach(el => observer.observe(el));
+    })();
+
+    /* ── Cursor ring expand on interactive elements ── */
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (ring) {
+          ring.style.width  = '44px';
+          ring.style.height = '44px';
+          ring.style.borderColor = '#6366f1';
+        }
+      });
+      el.addEventListener('mouseleave', () => {
+        if (ring) {
+          ring.style.width  = '28px';
+          ring.style.height = '28px';
+          ring.style.borderColor = 'rgba(34, 197, 94, 0.7)';
+        }
+      });
+    });
   </script>
 </body>
 </html>
